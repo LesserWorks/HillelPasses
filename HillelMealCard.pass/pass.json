@@ -1,12 +1,12 @@
 {
   "formatVersion" : 1,
   "passTypeIdentifier" : "pass.com.hillel.id",
-  "serialNumber" : "116518857",
+  "serialNumber" : "115320536",
   "teamIdentifier" : "3YUMQZP46Y",
   "barcodes" : [
     {
-      "message" : "21430016036604",
-      "altText" : "21430016036604",
+      "message" : "21430015019296",
+      "altText" : "21430015019296",
       "format" : "PKBarcodeFormatCode128",
       "messageEncoding" : "iso-8859-1"
     }
@@ -20,25 +20,25 @@
   ],
   "maxDistance" : 112,
   "organizationName" : "Maryland Hillel",
-  "description" : "Hillel Meal Plan ID",
+  "description" : "Hillel Meal Plan Card",
   "sharingProhibited" : false,
   "logoText" : "Meal Plan Card",
   "foregroundColor" : "rgb(255, 255, 255)",
-  "backgroundColor" : "rgb(227, 25, 51)",
-  "labelColor" : "rgb(255, 210, 0)",
+  "backgroundColor" : "rgb(224, 58, 62)",
+  "labelColor" : "rgb(255, 213, 32)",
   "generic" : {
     "primaryFields" : [
       {
         "key" : "name",
         "label" : "Name",
-        "value" : "Yoni Albert"
+        "value" : "Judah Lesser"
       }
     ],
     "secondaryFields" : [
       {
         "key" : "uid",
         "label" : "University ID",
-        "value" : "116518857"
+        "value" : "115320536"
       }
     ],
     "backFields" : [
