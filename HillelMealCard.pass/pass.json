@@ -1,0 +1,52 @@
+{
+  "formatVersion" : 1,
+  "passTypeIdentifier" : "pass.com.hillel.id",
+  "serialNumber" : "116518857",
+  "teamIdentifier" : "3YUMQZP46Y",
+  "barcodes" : [
+    {
+      "message" : "21430016036604",
+      "altText" : "21430016036604",
+      "format" : "PKBarcodeFormatCode128",
+      "messageEncoding" : "iso-8859-1"
+    }
+  ],
+  "locations" : [
+    {
+      "longitude" : -76.948545,
+      "latitude" : 38.982831,
+      "relevantText" : "You are near Hillel"
+    }
+  ],
+  "maxDistance" : 112,
+  "organizationName" : "Maryland Hillel",
+  "description" : "Hillel Meal Plan ID",
+  "sharingProhibited" : false,
+  "logoText" : "Meal Plan Card",
+  "foregroundColor" : "rgb(255, 255, 255)",
+  "backgroundColor" : "rgb(227, 25, 51)",
+  "labelColor" : "rgb(255, 210, 0)",
+  "generic" : {
+    "primaryFields" : [
+      {
+        "key" : "name",
+        "label" : "Name",
+        "value" : "Yoni Albert"
+      }
+    ],
+    "secondaryFields" : [
+      {
+        "key" : "uid",
+        "label" : "University ID",
+        "value" : "116518857"
+      }
+    ],
+    "backFields" : [
+      {
+        "key" : "sponsor",
+        "label" : "Credits",
+        "value" : "National Hillel Basketball Tournament provided the Apple Developer account to generate these passes."
+      }
+    ]
+  }
+}
