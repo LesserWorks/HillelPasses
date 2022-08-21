@@ -9,6 +9,12 @@
       "altText" : "21430015019296",
       "format" : "PKBarcodeFormatCode128",
       "messageEncoding" : "iso-8859-1"
+    },
+    {
+      "message" : "21430015019296",
+      "altText" : "21430015019296",
+      "format" : "PKBarcodeFormatQR",
+      "messageEncoding" : "iso-8859-1"
     }
   ],
   "locations" : [
