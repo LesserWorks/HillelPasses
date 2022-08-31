@@ -1,2 +1,2 @@
 # HillelPasses
-See the respective readmes in the Apple and Google folders.
+See the respective README files in the Apple and Google folders.

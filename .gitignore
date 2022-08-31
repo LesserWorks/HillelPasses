@@ -3,3 +3,4 @@ signpass
 *.cer
 *.cert*
 *.pkpass
+__pycache__
