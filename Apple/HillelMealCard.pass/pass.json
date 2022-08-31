@@ -19,12 +19,12 @@
   ],
   "locations" : [
     {
-      "longitude" : -76.948545,
-      "latitude" : 38.982831,
+      "longitude" : -76.9487499552736,
+      "latitude" : 38.98277586527705,
       "relevantText" : "You are near Hillel"
     }
   ],
-  "maxDistance" : 112,
+  "maxDistance" : 90,
   "organizationName" : "Maryland Hillel",
   "description" : "Hillel Meal Plan Card",
   "sharingProhibited" : false,
