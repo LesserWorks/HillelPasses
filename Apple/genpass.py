@@ -3,24 +3,41 @@ import os
 import sys
 import json
 import shutil
+import openpyxl
 import tempfile
 import subprocess
 
 def main():
     num_args = len(sys.argv)
-    if num_args == 3:
-        print("should read from file")
+    if num_args == 4:
+        pass_dir = sys.argv[1]
+        xlsx = sys.argv[2]
+        dest = sys.argv[3]
+        dest_path = os.path.join("./", dest)
+        if os.path.exists(dest_path) and os.path.isdir(dest_path):
+            shutil.rmtree(dest_path)
+        os.mkdir(dest_path)
+        workbook = openpyxl.load_workbook(xlsx)
+        worksheet = workbook.active
+        for row in worksheet.iter_rows(2, worksheet.max_row, values_only=True):
+            name = " ".join([row[0], row[1]])
+            id = str(row[2])
+            barcode = str(row[3])
+            makepass(pass_dir, name, id, barcode, os.path.join(dest_path, f"{name.replace(' ', '')}.pkpass"))
+
+
+            
     elif num_args == 5:
         pass_dir = sys.argv[1]
         name = sys.argv[2]
         uid = sys.argv[3]
         barcode = sys.argv[4]
-        makepass(pass_dir, name, uid, barcode)
+        makepass(pass_dir, name, uid, barcode, f"./{uid}.pkpass")
     else:
         print("Invalid arguments")
         return
     
-def makepass(pass_dir, name, uid, barcode):
+def makepass(pass_dir, name, uid, barcode, dest):
     if len(uid) != 9:
         print("UID must be 9 digits")
         return
@@ -53,8 +70,7 @@ def makepass(pass_dir, name, uid, barcode):
             json.dump(data, pass_file)
         
         subprocess.run(["./signpass", "-p", newdir]) # run pass signer tool
-        shutil.move(os.path.join(dst, f"{os.path.splitext(just_folder)[0]}.pkpass"), 
-                        f"./{uid}.pkpass") # copy created pass back to current directory
+        shutil.move(os.path.join(dst, f"{os.path.splitext(just_folder)[0]}.pkpass"), dest) # copy created pass back to current directory
 
 if __name__ == "__main__":
     main()
