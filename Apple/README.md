@@ -11,10 +11,10 @@ Sources and instructions to generate Apple wallet passes with a UID barcode on t
 1. Make sure the `genpass.py` file is executable with `sudo chmod +x genpass.py`.
 1. Generate a single pass with an invocation like 
 
-        ./genpass.py ./HillelMealCard.pass "Eric Gulich" 115333333 21430018888888
+        ./genpass.py ./HillelMealCard.pass "Mr. Student" 115333333 21430018888888
      
    Or generate multiple passes from an Excel document with 
-   
+
         ./genpass.py ./HillelMealCard.pass ./students.xlsx ./DestinationDir/
 
 1. The resulting pass file will end in `*.pkpass`. You can email or WhatsApp the file directly, or you can upload the pass to Google drive and send people this link which will directly download it: `https://drive.google.com/uc?export=download&id=FILE_ID`
