@@ -9,7 +9,8 @@ Sources and instructions to generate Apple wallet passes with a UID barcode on t
 1. Download and compile (with Xcode) the signpass tool from [here](https://developer.apple.com/library/archive/documentation/UserExperience/Conceptual/PassKit_PG/YourFirst.html). It makes the signing process much easier. The executable will be in `/Users/yourname/Library/Developer/Xcode/DerivedData/signpass-blahblah/Build/Products/Debug`
 1. Move the signpass executable to `HillelPasses/Apple`
 1. Make sure the `genpass.py` file is executable with `sudo chmod +x genpass.py`.
-1. Generate a single pass with an invocation like 
+1. Make sure the `openpyxl` Python library is installed.
+1. Generate a single pass with an invocation like this (quotes are required around the name)
 
         ./genpass.py ./HillelMealCard.pass "Mr. Student" 115333333 21430018888888
      
@@ -17,5 +18,17 @@ Sources and instructions to generate Apple wallet passes with a UID barcode on t
 
         ./genpass.py ./HillelMealCard.pass ./students.xlsx ./DestinationDir/
 
-1. The resulting pass file will end in `*.pkpass`. You can email or WhatsApp the file directly, or you can upload the pass to Google drive and send people this link which will directly download it: `https://drive.google.com/uc?export=download&id=FILE_ID`
-You can also drag the pass file into an iPhone simulator to make sure it was made correctly.
+1. Each resulting pass file will end in `*.pkpass`. You can email or WhatsApp the file directly, and you can also drag the pass file into an iPhone simulator to make sure it was made correctly.
+
+### Distributing Many Passes
+If you generated a whole folder full of passes, follow these instructions to generate a download link for each one:
+1. Upload the whole folder to Google Drive (using the "Folder Upload" button)
+1. Set the sharing permissions on the Google Drive folder to "Anyone with the link can view"
+1. Get the URL of the Google Drive folder
+1. Get your Google Drive API key from Google Cloud console (under APIs and Services > Credentials)
+1. Invoke the `getFileURL.py` script as follows
+
+        ./getFileURLs.py --key=<api key> --folder-url=<google drive folder url>
+
+1. This will first print out all the file names, and then print out a corresponding download link for each one, in the same order as the names above.
+

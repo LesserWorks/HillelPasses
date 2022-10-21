@@ -25,14 +25,13 @@ def main():
             barcode = str(row[3])
             makepass(pass_dir, name, id, barcode, os.path.join(dest_path, f"{name.replace(' ', '')}.pkpass"))
 
-
-            
     elif num_args == 5:
         pass_dir = sys.argv[1]
         name = sys.argv[2]
         uid = sys.argv[3]
         barcode = sys.argv[4]
         makepass(pass_dir, name, uid, barcode, f"./{uid}.pkpass")
+        
     else:
         print("Invalid arguments")
         return
