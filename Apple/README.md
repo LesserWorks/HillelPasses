@@ -16,7 +16,7 @@ Sources and instructions to generate Apple wallet passes with a UID barcode on t
      
    Or generate multiple passes from an Excel document with 
 
-        ./genpass.py HillelMealCard.pass/ students.xlsx DestinationDir/
+        ./genpass.py HillelMealCard.pass/ ../students.xlsx DestinationDir/
 
 1. Each resulting pass file will end in `*.pkpass`. You can email or WhatsApp the file directly, and you can also drag the pass file into an iPhone simulator to make sure it was made correctly.
 

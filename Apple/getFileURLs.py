@@ -14,7 +14,7 @@ def main():
     response = requests.get(url)
     data = response.json()
     for file in data['files']:
-        print(file['name'])
+        print(os.path.splitext(file['name'])[0])
 
     for file in data['files']:
         print(f"https://drive.google.com/uc?export=download&id={file['id']}")

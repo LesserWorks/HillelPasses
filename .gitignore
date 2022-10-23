@@ -6,4 +6,6 @@ signpass
 *.zip
 *.xlsx
 Passes/
+Google/*.json
+Google/wallet-samples/
 __pycache__
