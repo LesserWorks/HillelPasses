@@ -10,7 +10,7 @@ def main():
     args = parser.parse_args()
     key = args.key
     folder = os.path.basename(args.folder_url)
-    url = f"https://www.googleapis.com/drive/v3/files?fields=files(name,id)&key={key}&q=%27{folder}%27%20in%20parents"
+    url = f"https://www.googleapis.com/drive/v3/files?fields=files(name,id)&key={key}&q=%27{folder}%27%20in%20parents&orderBy=name&pageSize=1000"
     response = requests.get(url)
     data = response.json()
     for file in data['files']:
