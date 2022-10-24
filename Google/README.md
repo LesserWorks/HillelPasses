@@ -1,4 +1,4 @@
-# Apple Wallet Passes
+# Google Wallet Passes
 Sources and instructions to generate Google Wallet passes with a UID and barcode on them. It requires Google issuer and cloud platform accounts.
 
 ## Instructions
