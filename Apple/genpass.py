@@ -23,7 +23,7 @@ def main():
             name = " ".join([row[0], row[1]])
             id = str(row[2])
             barcode = str(row[3])
-            makepass(pass_dir, name, id, barcode, os.path.join(dest_path, f"{name.replace(' ', '')}.pkpass"))
+            makepass(pass_dir, name, id, barcode, os.path.join(dest_path, f"{name.replace(' ', '_')}.pkpass"))
 
     elif num_args == 5:
         pass_dir = sys.argv[1]
@@ -37,9 +37,9 @@ def main():
         return
     
 def makepass(pass_dir, name, uid, barcode, dest):
-    if len(uid) != 9:
-        print("UID must be 9 digits")
-        return
+    #if len(uid) != 9:
+    #    print("UID must be 9 digits")
+    #    return
     if len(barcode) != 14:
         print("Barcode must be 14 digits")
         return

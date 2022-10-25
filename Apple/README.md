@@ -23,7 +23,7 @@ Sources and instructions to generate Apple Wallet passes with a UID and barcode 
 If you generated a whole folder full of passes, follow these instructions to generate a download link for each one:
 1. Upload the whole folder to Google Drive (using the "Folder Upload" button)
 1. Set the sharing permissions on the Google Drive folder to "Anyone with the link can view"
-1. Get the URL of the Google Drive folder
+1. Get the URL of the Google Drive folder (**WITHOUT** anything at the end, like `/edit?usp=sharing`)
 1. Get your Google Drive API key from [Google Cloud console](https://console.cloud.google.com/apis/credentials) (under APIs and Services > Credentials)
 1. Invoke the `getFileURL.py` script as follows
 

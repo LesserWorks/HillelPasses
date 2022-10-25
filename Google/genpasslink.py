@@ -42,10 +42,10 @@ def main():
             name = " ".join([row[0], row[1]])
             id = str(row[2])
             barcode = str(row[3])
-            students.append((name, id, barcode)) # read document into tuple
+            students.append((name.replace(" ", "_"), id, barcode)) # read document into tuple
             #print(f"{name} {id} {barcode}")
             #makepass(pass_dir, name, id, barcode, os.path.join(dest_path, f"{name.replace(' ', '')}.pkpass"))
-        students.sort(key = lambda x: x[0].replace(" ", "")) # sort students alphabetically
+        students.sort(key = lambda x: x[0]) # sort students alphabetically
         
         credentials = service_account.Credentials.from_service_account_file(
             key_file,
@@ -56,7 +56,7 @@ def main():
         for student in students:
             print(student[0]) # print students' names in the order we will generate the links
         for student in students:
-            makepasslink(http_client, key_file, student[0], student[1], student[2])
+            makepasslink(http_client, key_file, student[0].replace("_", " "), student[1], student[2])
 
     elif num_args == 5:
         key_file = sys.argv[1]
@@ -79,11 +79,11 @@ def main():
 def makepasslink(http_client, key_file, name, uid, barcode):
     # Make sure these variables are up to date!
     issuer_id = 3388000000022144163
-    class_id = "hillelcard"
+    class_id = "hillelmealcard"
 
-    if len(uid) != 9:
-        print("UID must be 9 digits")
-        return
+    #if len(uid) != 9:
+    #    print("UID must be 9 digits")
+    #    return
     if len(barcode) != 14:
         print("Barcode must be 14 digits")
         return
