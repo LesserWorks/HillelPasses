@@ -19,9 +19,14 @@
   ],
   "locations" : [
     {
-      "longitude" : -76.9487499552736,
-      "latitude" : 38.98277586527705,
+      "longitude" : -76.948750,
+      "latitude" : 38.982776,
       "relevantText" : "You are near Hillel"
+    },
+    {
+      "longitude" : -76.935512,
+      "latitude" : 38.982737,
+      "relevantText" : "You are near the future Hillel location"
     }
   ],
   "maxDistance" : 90,
@@ -48,6 +53,11 @@
       }
     ],
     "backFields" : [
+      {
+        "key" : "help_msg",
+        "label" : "Note",
+        "value" : "If you get a new card and need to change your barcode number, please contact Maryland Hillel."
+      },
       {
         "key" : "sponsor",
         "label" : "Credits",
