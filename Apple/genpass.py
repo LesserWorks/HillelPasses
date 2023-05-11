@@ -6,6 +6,7 @@ import shutil
 import openpyxl
 import tempfile
 import subprocess
+from pathlib import Path
 
 def main():
     num_args = len(sys.argv)
@@ -49,13 +50,14 @@ def makepass(pass_dir, name, uid, barcode, dest):
         pass
     # Make temp directory to make pass in
     with tempfile.TemporaryDirectory() as dst:
-        just_folder = os.path.basename(pass_dir)
-        newdir = os.path.join(dst, just_folder)
-        os.mkdir(newdir)
+        just_folder = Path(pass_dir).name
+        newdir = Path(dst, just_folder)
+        Path.mkdir(newdir)
+
         # copy pass source to temp directory
         shutil.copytree(pass_dir, newdir, dirs_exist_ok=True) 
         # open pass.json
-        with open(os.path.join(newdir, "pass.json"), "r") as pass_file:
+        with open(Path(newdir, 'pass.json'), 'r') as pass_file:
             data = json.load(pass_file)
             # write custom data to json object
             data['serialNumber'] = uid
@@ -64,12 +66,12 @@ def makepass(pass_dir, name, uid, barcode, dest):
             for code in data['barcodes']:
                 code['message'] = barcode
                 code['altText'] = barcode
-        
-        with open(os.path.join(newdir, "pass.json"), "w") as pass_file:
+
+        with open(Path(newdir, 'pass.json'), 'w') as pass_file:
             json.dump(data, pass_file)
         
-        subprocess.run(["./signpass", "-p", newdir]) # run pass signer tool
-        shutil.move(os.path.join(dst, f"{os.path.splitext(just_folder)[0]}.pkpass"), dest) # copy created pass back to current directory
+        subprocess.run(['./signpass', '-p', newdir]) # run pass signer tool
+        shutil.move(Path(dst, f'{os.path.splitext(just_folder)[0]}.pkpass'), dest) # copy created pass back to current directory
 
 if __name__ == "__main__":
     main()
