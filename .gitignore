@@ -1,6 +1,7 @@
 .DS_Store
-signpass
 *.cer
+*.pem
+*.p12
 *.cert*
 *.pkpass
 *.zip
