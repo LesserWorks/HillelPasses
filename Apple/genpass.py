@@ -93,7 +93,7 @@ def makepass(pass_dir, name, uid, barcode, dest, key_pass):
 
 def prepare_certs(key_pass):
     pass_type_id_cert = 'Certificates.p12'
-    subprocess.run(['openssl', 'pkcs12', '-in', pass_type_id_cert, 
+    subprocess.run(['openssl', 'pkcs12', '-legacy', '-in', pass_type_id_cert, 
                     '-clcerts', '-out', 'cert.pem', '-passin', 'pass:', '-passout', f'pass:{key_pass}'])
 
 def cleanup_certs():
